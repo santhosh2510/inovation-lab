@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Portfolio</title>
+    <title>Document</title>
     <style>
-        ul{
-            display: flex;
-            list-style: none;
-            gap: 250px;
-            background-color: lightblue;
+        body{
+            text-align: center;
         }
-        #ex1{
-            height:200px;
-            width: auto;
-            border:7px double;
-        }
-        #ex2{
-            margin-left: 500px;
-            margin-top: -180px;
+        h2,input,button{
+            margin: 10px;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Skill</li>
-                <li>Education</li>
-                <li>About Me</li>
-            </ul>
-        </nav>
-    </header>
-    <section id="ex1">
-        <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" alt=""
-        height="200px" width="200px">
-        <div id="ex2">
-        <h3>Hi here</h3>
-        <p>I'm santhosh</p>
-    </div>
-    </section>
+    <h2>Guess program</h2>
+    <input type="number" placeholder="Enter the number" id="num">
+    <button onclick="playgame()">Guess the number</button>
+    <p id="feedback"></p>
+    <p id="count"></p>
+    <script>
+        let target=Math.floor(Math.random()*100)+1;
+        console.log(target);
+        let count=0;
+        function playgame(){
+            let Guess=parseInt(document.getElementById("num").value);
+            count++;
+            if(Guess < target){
+                document.getElementById("feedback").innerText="too low";
+            }else if(Guess > target){
+                document.getElementById("feedback").innerText="too high";
+            }
+            else{
+                document.getElementById("feedback").innerText="your guess is correct";
+                document.getElementById("feedback").innerText="your attempts"+count;
+            }
+        }
+                  </script>
+    
 </body>
 </html>
